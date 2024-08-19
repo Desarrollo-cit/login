@@ -2,10 +2,11 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
-  watch: true,
   entry: {
-    'js/app' : './src/js/app.js',
-    'js/inicio' : './src/js/inicio.js',
+    'js/app': './src/js/app.js',
+    'js/inicio': './src/js/inicio.js',
+    'js/auth/registro': './src/js/auth/registro.js',
+    'js/auth/login': './src/js/auth/login.js',
   },
   output: {
     filename: '[name].js',
@@ -13,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-        filename: 'styles.css'
+      filename: 'styles.css'
     })
   ],
   module: {
@@ -21,18 +22,18 @@ module.exports = {
       {
         test: /\.(c|sc|sa)ss$/,
         use: [
-            {
-                loader: MiniCssExtractPlugin.loader
-            },
-            'css-loader',
-            'sass-loader'
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader',
+          'sass-loader'
         ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         loader: 'file-loader',
         options: {
-           name: 'img/[name].[hash:7].[ext]'
+          name: 'img/[name].[hash:7].[ext]'
         }
       },
     ]
